@@ -18,15 +18,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Question />
+        <ul className="dashboard-list">
+          {this.props.questionsIds.map((id) => (
+            <li key={id}>
+              <Question id={id} />
+            </li>
+          ))}
+        </ul>
       </div>
     )
   }
 }
 
-function mapStateToProps ({ questions }) {
+function mapStateToProps({ questions }) {
   return {
-    questions
+    questionsIds: Object.keys(questions)
   }
 }
 
