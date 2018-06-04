@@ -7,8 +7,8 @@ class Question extends React.Component {
     const {question, users} = this.props
     return (
       <div className='question'>
-        <p>Question 1</p>
-        <p>Question 2</p>
+        <p>Question 1: {question.optionOne.text}</p>
+        <p>Question 2: {question.optionTwo.text}</p>
       </div>
     )
   }
