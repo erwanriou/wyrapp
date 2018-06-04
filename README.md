@@ -6,5 +6,4 @@ In order to run the application:
 2- npm install
 3- npm start
 
-USERNAME : root
 PASSWORD : root

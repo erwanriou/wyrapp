@@ -7,5 +7,5 @@ import auth from './auth'
 export default applyMiddleware(
   thunk,
   logger,
-  //auth,
+  auth,
 )

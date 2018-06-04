@@ -45,8 +45,11 @@ p {
   border: 1px solid #dadada;
 }
 
-/* question styling */
+/* dashboard styling */
 
+.dashboard {
+  margin-top: 10rem;
+}
 
 .question {
   padding: 1rem;
