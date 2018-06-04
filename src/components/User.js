@@ -1,18 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect, withRouter } from 'react-router-dom'
 
 import { setAuthedUser } from '../actions/authedUser'
 
 class User extends React.Component {
-  state = {
-    text: '',
-    toDashBoard: false,
-  }
   // function to handle the choose of the authedUser
   handleAuthedUser= (e) => {
     e.preventDefault()
-    const { dispatch, authedUser, user } = this.props
+    const { dispatch, user } = this.props
     dispatch(setAuthedUser({
       authedUser: user.id
     }))

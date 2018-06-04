@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { unSetAuthedUser } from '../actions/authedUser'
 
@@ -8,7 +8,7 @@ class Nav extends React.Component {
 
   handleLogOut= (e) => {
     e.preventDefault()
-    const { dispatch, authedUser } = this.props
+    const { dispatch } = this.props
     dispatch(unSetAuthedUser())
   }
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class Question extends React.Component {
 
   render() {
-    const {question, users} = this.props
+    const { question } = this.props
     return (
       <div className='question'>
         <p>Question 1: {question.optionOne.text}</p>

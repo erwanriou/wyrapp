@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Nav from './Nav.js'
 import Question from './Question.js'
 
 class Dashboard extends React.Component {
