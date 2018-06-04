@@ -15,11 +15,26 @@ p {
   z-index: 1000;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-around;
   height: 5rem;
   background-color: white;
   box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
+}
+
+.user-menu, .links  {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  padding: 0 2rem;
+  color: black;
+}
+
+.link:hover {
+  color: #a494ef;
 }
 
 .nav img {
@@ -64,7 +79,12 @@ p {
 
 .login h1 {
   text-align: center;
-  padding: 5rem;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+.login h2 {
+  text-align: center;
+  padding-bottom: 4rem;
 }
 
 .login ul {

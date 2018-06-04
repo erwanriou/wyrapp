@@ -16,49 +16,51 @@ import Login from './Login.js'
 
 class App extends Component {
 
+  //Fetching initial datas
   componentDidMount() {
     const {dispatch} = this.props
     dispatch(handleInitialData())
   }
 
+  //ternary operator on authedUser to define if the user is logged or not
+  checkAuthedUser() {
+    const { authedUser } = this.props
+    return authedUser === null
+      ? <Redirect to='/login' />
+      : <div>
+          <Nav />
+          <Redirect to='/dashboard' />
+        </div>
+  }
 
   render() {
-    const { authedUser, loading } = this.props
+    const { loading } = this.props
     return (
       <Fragment>
-        {/* ternary operator on authedUser to define if the user is logged or not*/}
-        { authedUser === null
-          ? <Redirect to='/login' />
-          : <div>
-              <Nav />
-              <Redirect to='/dashboard' />
-            </div>
-          }
         <LoadingBar />
         {/* Displaying content only if data is loaded */}
         { loading === 1
           ? null
-          : <div>
-            <Route
-              exact path='/login'
-              component={Login}
-            />
-            <Route
-              exact path='/dashboard'
-              component={Dashboard}
-            />
-          </div>}
+          : <Fragment>
+              {this.checkAuthedUser()}
+              <Route
+                exact path='/login'
+                component={Login}
+              />
+              <Route
+                exact path='/dashboard'
+                component={Dashboard}
+              />
+          </Fragment>}
       </Fragment>
     )
   }
 }
 
-function mapStateToProps ({ authedUser, users, questions, loadingBar }) {
+function mapStateToProps ({ authedUser, loadingBar }) {
   return {
     loading: loadingBar.default,
     authedUser,
-    users,
-    questions,
   }
 }
 

@@ -8,7 +8,8 @@ class Login extends React.Component {
     const { usersIds } = this.props
     return (
       <div className='login'>
-        <h1>Choose your monster!</h1>
+        <h1>Choose your Geek !!</h1>
+        <h2>* Yes, yes i draw them myself...*</h2>
         <ul>
           {usersIds.map(id =>
           (<li key={id}>
