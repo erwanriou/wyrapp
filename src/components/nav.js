@@ -13,10 +13,11 @@ class Nav extends React.Component {
   }
 
   render() {
-    const { users, authedUser } = this.props
+    const { user, users } = this.props
     return (
       <div className='nav'>
-        <p>{`bienvenu ${users.sarahedo.name}`}</p>
+        <img src={users[user].avatarURL} alt={`Avatar of ${users[user].name}`}/>
+        <p>{`Welcome ${users[user].name}`}</p>
         <button
           onClick={this.handleLogOut}>
           Log Out
@@ -26,10 +27,12 @@ class Nav extends React.Component {
   }
 }
 
-function mapStateToProps ({ users, authedUser }){
+function mapStateToProps ({ authedUser, users }){
+  // we are importing the value of the authedUser to insert in the users object key
+  const user = Object.values(authedUser)
   return {
     users,
-    authedUser,
+    user: user,
   }
 }
 

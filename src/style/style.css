@@ -22,22 +22,28 @@ p {
   box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
 }
 
+.nav img {
+  border-radius: 2rem;
+  width: 2rem;
+  margin: 0 1rem;
+}
+
 .nav p {
   padding: 0 1rem;
 }
 
+.nav button {
+  margin: 0 1rem;
+  background-color: white;
+  border: 1px solid #eaeaea;
+  padding: 0.5rem 2rem;
 
+}
 
-
-
-
-
-
-
-
-
-
-
+.nav button:hover {
+  background-color: #eaeaea;
+  border: 1px solid #dadada;
+}
 
 /* question styling */
 
