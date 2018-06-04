@@ -1,11 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Route, Redirect, Switch } from 'react-router-dom'
+import LoadingBar from 'react-redux-loading'
+
 import { handleInitialData } from '../actions/shared'
 
 import '../style/reset.css'
 import '../style/style.css'
 
-import Question from './Question.js'
+
+import Dashboard from './Dashboard.js'
+import Login from './Login.js'
 
 
 class App extends Component {
@@ -15,24 +20,34 @@ class App extends Component {
     dispatch(handleInitialData())
   }
 
+
   render() {
+    const { authedUser } = this.props
     return (
-      <div>
-        <ul className="dashboard-list">
-          {this.props.questionsIds.map((id) => (
-            <li key={id}>
-              <Question id={id} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Fragment>
+        <LoadingBar />
+        <Route
+          exact path='/login'
+          component={Login}
+        />
+        <Route
+          exact path='/dashboard'
+          component={Dashboard}
+        />
+        { authedUser === null
+          ? <Redirect to='/login' />
+          : <Redirect to='/dashboard' />}
+
+      </Fragment>
     )
   }
 }
 
-function mapStateToProps({ questions }) {
+function mapStateToProps ({ authedUser, users, questions }) {
   return {
-    questionsIds: Object.keys(questions)
+    authedUser,
+    users,
+    questions,
   }
 }
 

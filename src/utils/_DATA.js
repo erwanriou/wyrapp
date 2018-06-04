@@ -1,10 +1,8 @@
-let generator =  Math.floor(Math.random() * 100);
-
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: `https://api.adorable.io/avatars/187/${generator}@adorable.io.png`,
+    avatarURL: 'https://api.adorable.io/avatars/187/33@adorable.io.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -16,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: `https://api.adorable.io/avatars/187/${generator}@adorable.io.png`,
+    avatarURL: 'https://api.adorable.io/avatars/187/34@adorable.io.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -26,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: `https://api.adorable.io/avatars/187/${generator}@adorable.io.png`,
+    avatarURL: 'https://api.adorable.io/avatars/187/35@adorable.io.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

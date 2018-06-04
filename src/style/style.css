@@ -1,5 +1,7 @@
 body {
-  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
 }
 
 p {
@@ -7,6 +9,61 @@ p {
   text-align: center;
 }
 
+
 .question {
   padding: 1rem;
+}
+
+
+/* user styling */
+
+.login {
+  display: block;
+}
+
+.login h1 {
+  text-align: center;
+  padding: 5rem;
+}
+
+.login ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.user {
+  position: relative;
+  display: flex;
+  border: 1px solid #eaeaea;
+  margin-right: -1px;
+  cursor: pointer;
+}
+
+.user img {
+  filter: opacity(0.2);
+  border-radius: 10rem;
+  padding: 2rem;
+  width: 7rem;
+  height: 7rem;
+}
+
+.user:hover {
+  box-shadow: 4px 8px 16px 0 rgba(0,0,0,.1);
+}
+.user:hover > img  {
+  filter: opacity(1);
+}
+
+.user:hover > p  {
+  top: 85%;
+}
+
+.user p {
+  transition:  0.5s ease;
+  font-weight: 400;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
 }
