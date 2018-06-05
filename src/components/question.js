@@ -7,6 +7,7 @@ class Question extends React.Component {
     const { question } = this.props
     return (
       <div className='question'>
+        <h1>WOULD YOU LIKE?</h1>
         <p>Question 1: {question.optionOne.text}</p>
         <p>Question 2: {question.optionTwo.text}</p>
       </div>

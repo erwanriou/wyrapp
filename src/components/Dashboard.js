@@ -8,6 +8,7 @@ class Dashboard extends React.Component {
     const { questionsIds } = this.props
     return (
       <div className='dashboard'>
+        <h1>ANSWERED | NON ANSWERED</h1>
         <ul>
           {questionsIds.map(id =>
           (<li key={id}>

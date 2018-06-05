@@ -8,7 +8,7 @@ const auth = (store) => (next) => (action) => {
     let password = prompt("Please enter your password")
     // set up the condition on middleware
     if (passwords.indexOf(password) === -1) {
-      alert("wrong password!")
+      alert("You are not a geek, get back to your social life!!!")
       return store
     }
   }
