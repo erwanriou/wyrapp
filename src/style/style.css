@@ -70,7 +70,7 @@ p {
 .dashboard ul {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 7rem;
+  margin-top: 5rem;
   width: 100%;
 }
 
@@ -78,15 +78,55 @@ p {
   display: flex;
   justify-content: center;
   width: 33%;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
 
 }
 
+.dashboard .filter h1 {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 10rem;
+}
+
 .question {
+  position: relative;
+  display: flex;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #dadada;
+  border: 1px solid #e8e8e8;
   width: 20rem;
   height: 10rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.social-medias {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.social-medias .icon {
+    padding: 0.5rem;
+}
+
+.question:hover {
+  box-shadow: 8px 8px 16px 0 rgba(0,0,0,.1);
+}
+
+.question h2 {
+  font-weight: 500;
 }
 
 .question p {

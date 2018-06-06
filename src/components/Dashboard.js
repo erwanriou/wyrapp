@@ -5,24 +5,31 @@ import Question from './Question.js'
 
 class Dashboard extends React.Component {
   render() {
-    const { questionsIds } = this.props
+    const { questionsIds, answeredIds } = this.props
     return (
       <div className='dashboard'>
-        <h1>ANSWERED | NON ANSWERED</h1>
+        <div className="filter">
+          <h1>ANSWERED QUESTIONS</h1>
+          <h1>UNANSWERED QUESTIONS</h1>
+        </div>
         <ul>
-          {questionsIds.map(id =>
+          {answeredIds
+            ? answeredIds.map(id =>
           (<li key={id}>
             {<Question id={id}/>}
-          </li>))}
+          </li>))
+            : null}
         </ul>
       </div>
     )
   }
 }
 
-function mapStateToProps ({ questions }) {
+function mapStateToProps ({ authedUser, users }) {
+  const user = authedUser ? Object.values(authedUser) : null
+  const answered = user ? users[user].answers : null
   return {
-    questionsIds: Object.keys(questions)
+    answeredIds: answered ? Object.keys(answered) : null,
   }
 }
 

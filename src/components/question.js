@@ -1,24 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { FaHeartO, FaHeart, FaCommentO } from 'react-icons/lib/fa';
 
 class Question extends React.Component {
 
   render() {
-    const { question } = this.props
+    const { question } = this.props;
     return (
       <div className='question'>
-        <h1>WOULD YOU LIKE?</h1>
-        <p>Question 1: {question.optionOne.text}</p>
-        <p>Question 2: {question.optionTwo.text}</p>
+        <div className="question-options">
+          <h2>WOULD YOU LIKE?</h2>
+          <p>{question.optionOne.text}</p>
+          <h2>OR</h2>
+          <p>{question.optionTwo.text}</p>
+        </div>
+        <div className="social-medias">
+          <FaHeartO className="icon"/>
+          <FaCommentO className="icon"/>
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps ({users, questions}, {id}) {
+function mapStateToProps ({ questions }, {id}) {
   const question = questions[id]
   return {
-    users,
     question,
   }
 }
