@@ -9,9 +9,12 @@ import '../style/reset.css'
 import '../style/style.css'
 
 
-import Dashboard from './Dashboard.js'
-import Nav from './Nav.js'
-import Login from './Login.js'
+import Dashboard from './Dashboard'
+import Nav from './Nav'
+import Login from './Login'
+import LeaderBoard from './LeaderBoard'
+import AddQuestion from './AddQuestion'
+import QuestionDetail from './QuestionDetail'
 
 
 class App extends Component {
@@ -50,6 +53,18 @@ class App extends Component {
               <Route
                 exact path='/dashboard'
                 component={Dashboard}
+              />
+              <Route
+                exact path='/leaderBoard'
+                component={LeaderBoard}
+              />
+              <Route
+                exact path='/add'
+                component={AddQuestion}
+              />
+              <Route
+                exact path='/questions/:id'
+                component={QuestionDetail}
               />
           </Fragment>}
       </Fragment>

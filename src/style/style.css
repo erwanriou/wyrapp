@@ -59,7 +59,19 @@ p {
   background-color: #eaeaea;
   border: 1px solid #dadada;
 }
+/* leaderBoard styling */
 
+.leaderboard h1 {
+  text-align: center;
+  margin-top: 10rem;
+}
+
+/* Create question styling */
+
+.add-question h1 {
+  text-align: center;
+  margin-top: 10rem;
+}
 /* dashboard styling */
 
 .dashboard {
@@ -72,6 +84,10 @@ p {
   flex-wrap: wrap;
   margin-top: 5rem;
   width: 100%;
+}
+
+.dashboard h1 {
+  cursor: pointer;
 }
 
 .dashboard li {
@@ -100,6 +116,8 @@ p {
   border: 1px solid #e8e8e8;
   width: 20rem;
   height: 10rem;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
   transition: all 0.2s ease;
 }

@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { FaHeartO, FaHeart, FaCommentO } from 'react-icons/lib/fa';
 
 class Question extends React.Component {
 
   render() {
-    const { question } = this.props;
+    const { question, id } = this.props;
     return (
-      <div className='question'>
+      <Link to={`/questions/${id}`} className='question'>
         <div className="question-options">
           <h2>WOULD YOU LIKE?</h2>
           <p>{question.optionOne.text}</p>
@@ -18,7 +19,7 @@ class Question extends React.Component {
           <FaHeartO className="icon"/>
           <FaCommentO className="icon"/>
         </div>
-      </div>
+      </Link>
     )
   }
 }

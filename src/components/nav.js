@@ -29,7 +29,7 @@ class Nav extends React.Component {
           </NavLink>
           <NavLink
             className='link'
-            exact to='/new'>
+            exact to='/add'>
             Create Question
           </NavLink>
         </div>
