@@ -8,7 +8,6 @@ import { handleInitialData } from '../actions/shared'
 import '../style/reset.css'
 import '../style/style.css'
 
-
 import Dashboard from './Dashboard'
 import Nav from './Nav'
 import Login from './Login'
@@ -40,7 +39,7 @@ class App extends Component {
     const { loading } = this.props
     return (
       <Fragment>
-        <LoadingBar />
+        <LoadingBar style={{ backgroundColor: 'orange', height: '10px' }}/>
         {/* Displaying content only if data is loaded */}
         { loading === 1
           ? null
