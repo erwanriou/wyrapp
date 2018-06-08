@@ -61,9 +61,29 @@ p {
 }
 /* leaderBoard styling */
 
-.leaderboard h1 {
+.leaderboard {
+  margin: 10rem auto;
+  box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
+}
+
+.leaderboard th {
+  font-weight: 400;
+}
+
+.leaderboard td, .leaderboard tr, .leaderboard th {
+  border: 1px solid #eaeaea;
+  padding: 2rem;
+  vertical-align: middle;
+  min-width: 10rem;
+}
+
+.leaderboard tbody {
   text-align: center;
-  margin-top: 10rem;
+}
+.leaderboard img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2rem;
 }
 
 /* Create question styling */
