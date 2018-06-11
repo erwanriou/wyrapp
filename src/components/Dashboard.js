@@ -6,6 +6,7 @@ import Question from './Question.js'
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
+    // React statement for UI short term purpose (not necessary to use redux here)
     this.state = { isToggle: false }
     this.handleToggleQuestions = this.handleToggleQuestions.bind(this);
     this.handleToggleAnswers = this.handleToggleAnswers.bind(this);
