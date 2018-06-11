@@ -87,28 +87,112 @@ p {
 }
 
 /* Question detail styling */
+.question-detail-link {
+  display: flex;
+  width: 1100px;
+  margin: 10rem auto;
+}
+
+.question-detail-link a {
+  border: 1px solid #eaeaea;
+  padding: 2em;
+  height: 1rem;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.question-detail-link a .icon {
+  margin-right: 1rem;
+  color: black;
+}
+
+.question-detail-link a:hover {
+  box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
+}
+
+.question-detail-link a:hover .icon {
+  color: #a494ef;
+}
+
 .question-detail {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin: 10rem auto;
+  margin: 0 auto;
   border: 1px solid #eaeaea;
   box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
-  padding: 4rem;
+  padding: 3rem;
   width: 40rem;
 }
 
 .question-user {
+  position: relative;
   display: flex;
+  margin-bottom: 2rem;
+}
+
+.question-social {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.question-social .icon {
+  margin-left: 1rem;
 }
 
 .question-user img {
   border-radius: 2rem;
-  width: 2rem;
-  height: 2rem;
-  margin: 0 1rem;
+  width: 3rem;
+  height: 3rem;
 }
+
+.question-name-date {
+  align-self: center;
+  margin-left: 1rem;
+}
+
+.question-user p {
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.question-title h1 {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.question-option {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.question-option p {
+  margin-right: 1rem;
+}
+
+.question-select-form {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.question-select-form select, .question-select-form input {
+  display: flex;
+  padding: 1rem 2rem;
+  border: 1px solid #eaeaea;
+  background-color: white;
+}
+
+
+.question-select-form select:focus, .question-select-form option:focus {
+  outline: none;
+}
+
 
 /* Create question styling */
 

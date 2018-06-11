@@ -51,16 +51,16 @@ class Dashboard extends React.Component {
           <h1
             onClick={this.handleToggleAnswers}
             style={{fontWeight: !this.state.isToggle ? '500' : '100'}}>
-            ANSWERED QUESTIONS
+            UNANSWERED QUESTIONS
           </h1>
           <h1
             onClick={this.handleToggleQuestions}
             style={{fontWeight: this.state.isToggle ? '500' : '100'}}>
-            UNANSWERED QUESTIONS
+            ANSWERED QUESTIONS
           </h1>
         </div>
         <ul>
-          {!this.state.isToggle ? this.displayAnswers() : this.displayUnanswers()}
+          {this.state.isToggle ? this.displayAnswers() : this.displayUnanswers()}
         </ul>
       </div>
     )
