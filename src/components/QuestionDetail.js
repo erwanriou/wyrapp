@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Redirect, withRouter, Link, actuis } from 'react-router-dom'
 import { FaHeartO, FaHeart, FaCommentO, FaChevronLeft } from 'react-icons/lib/fa';
 
+import { handleAddQuestionAnswer } from '../actions/questions'
+
 class QuestionDetail extends Component {
 
   displayDate(timestamp) {
@@ -18,6 +20,17 @@ class QuestionDetail extends Component {
     return  <p>
               {`${option.votes.length} vote(s) | ${option.votes.length*100/totalLength}%`}
             </p>
+  }
+
+  handleQuestionAnswer = (e) => {
+    //function to import the answers selected to redux and the database
+    e.preventDefault()
+    const { dispatch, question, user } = this.props
+    dispatch(handleAddQuestionAnswer({
+      qid: question,
+      authedUser: user,
+      answer: e.target.value,
+    }))
   }
 
   checkAnswerByAuthed() {
@@ -39,15 +52,13 @@ class QuestionDetail extends Component {
                 : <div className="question-choose">
                     <form
                       className='question-select-form'
-                      onSubmit={() => {
-                      //define the function to choose the question option (redux action)
-                      }}>
+                      onSubmit={this.handleQuestionAnswer}>
                       <select
                         defaultValue='Select an answer'
                         className='question-select'>
                         <option value='Select an answer' disabled hidden>Select an answer</option>
-                        <option value={question.optionOne.text}>{question.optionOne.text}</option>
-                        <option value={question.optionTwo.text}>{question.optionTwo.text}</option>
+                        <option value={question.optionOne}>{question.optionOne.text}</option>
+                        <option value={question.optionTwo}>{question.optionTwo.text}</option>
                       </select>
                       <input type="submit" value="Submit" />
                     </form>
