@@ -3,7 +3,7 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'SAVE_QUESTION'
-export const ADD_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 
 
 function addQuestion(question) {
@@ -13,19 +13,24 @@ function addQuestion(question) {
   }
 }
 
-function addQuestionAnswer({id, authedUser, answer}) {
+function answerQuestion({id, authedUser, answer}) {
   return {
-    type: ADD_QUESTION_ANSWER,
+    type: ANSWER_QUESTION,
     id,
     authedUser,
     answer,
   }
 }
 
-export function handleAddQuestionAnswer(info) {
+export function handleAnswerQuestion(info) {
   return (dispatch) => {
-    dispatch(addQuestionAnswer(info))
+    dispatch(answerQuestion(info))
     return saveQuestionAnswer(info)
+     .catch((e) => {
+         console.warn("Error in handleAnswerQuestion")
+         dispatch(answerQuestion(info))
+         alert('There was an error answering this question')
+     })
   }
 }
 

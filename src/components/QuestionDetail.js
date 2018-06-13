@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect, withRouter, Link, actuis } from 'react-router-dom'
 import { FaHeartO, FaHeart, FaCommentO, FaChevronLeft } from 'react-icons/lib/fa';
 
-import { handleAddQuestionAnswer } from '../actions/questions'
+import { handleAnswerQuestion } from '../actions/questions'
 
 class QuestionDetail extends Component {
 
@@ -26,9 +26,9 @@ class QuestionDetail extends Component {
     //function to import the answers selected to redux and the database
     e.preventDefault()
     const { dispatch, question, user } = this.props
-    dispatch(handleAddQuestionAnswer({
+    dispatch(handleAnswerQuestion({
       id: question,
-      authedUser: user,
+      authedUser: user.toString(),
       answer: e.target.value,
     }))
   }
