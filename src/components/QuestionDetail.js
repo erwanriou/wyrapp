@@ -27,7 +27,7 @@ class QuestionDetail extends Component {
     e.preventDefault()
     const { dispatch, question, user } = this.props
     dispatch(handleAddQuestionAnswer({
-      qid: question,
+      id: question,
       authedUser: user,
       answer: e.target.value,
     }))

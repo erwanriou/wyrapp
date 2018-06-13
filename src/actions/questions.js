@@ -13,10 +13,10 @@ function addQuestion(question) {
   }
 }
 
-function addQuestionAnswer({qid, authedUser, answer}) {
+function addQuestionAnswer({id, authedUser, answer}) {
   return {
     type: ADD_QUESTION_ANSWER,
-    qid,
+    id,
     authedUser,
     answer,
   }
