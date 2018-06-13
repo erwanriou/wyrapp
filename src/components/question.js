@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FaHeartO, FaHeart, FaCommentO } from 'react-icons/lib/fa';
+import { FaHeartO, FaCommentO } from 'react-icons/lib/fa';
 
 class Question extends React.Component {
 

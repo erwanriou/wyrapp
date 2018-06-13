@@ -9,8 +9,7 @@ export default function questions (state = {}, action) {
       }
     case ANSWER_QUESTION :
       let newState = { ...state }
-      newState[action.id][action.answer].votes = newState[action.id][action.answer].votes.concat([action.authedUser])
-
+      newState[action.id][action.answer].votes.concat([action.authedUser])
       return newState
     default :
       return state

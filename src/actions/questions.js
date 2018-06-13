@@ -1,15 +1,13 @@
-import { saveQuestion, saveQuestionAnswer } from '../utils/api'
-import { showLoading, hideLoading } from 'react-redux-loading'
+import { saveQuestionAnswer } from '../utils/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'SAVE_QUESTION'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 
-
-function addQuestion(question) {
+export function receiveQuestions (questions) {
   return {
-    type: ADD_QUESTION,
-    question,
+    type: RECEIVE_QUESTIONS,
+    questions,
   }
 }
 
@@ -31,13 +29,5 @@ export function handleAnswerQuestion(info) {
          dispatch(answerQuestion(info))
          alert('There was an error answering this question')
      })
-  }
-}
-
-
-export function receiveQuestions (questions) {
-  return {
-    type: RECEIVE_QUESTIONS,
-    questions,
   }
 }

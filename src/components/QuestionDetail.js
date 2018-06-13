@@ -1,11 +1,19 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Redirect, withRouter, Link, actuis } from 'react-router-dom'
-import { FaHeartO, FaHeart, FaCommentO, FaChevronLeft } from 'react-icons/lib/fa';
+import { Redirect, withRouter, Link } from 'react-router-dom'
+import { FaHeartO, FaCommentO, FaChevronLeft } from 'react-icons/lib/fa';
 
-import { handleAnswerQuestion } from '../actions/questions'
+import { handleQuestionVote } from '../actions/shared'
 
 class QuestionDetail extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      answer: ''
+    }
+    this.handleQuestionAnswer = this.handleQuestionAnswer.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   displayDate(timestamp) {
     //function to format the timestamp
@@ -22,20 +30,30 @@ class QuestionDetail extends Component {
             </p>
   }
 
+  handleChange(e) {
+    //function to handle the state change value from react
+    this.setState({ answer: e.target.value });
+  }
+
   handleQuestionAnswer = (e) => {
     //function to import the answers selected to redux and the database
     e.preventDefault()
     const { dispatch, question, user } = this.props
-    dispatch(handleAnswerQuestion({
+    console.log(question[this.state.answer].votes.concat([user.toString()]));
+    dispatch(handleQuestionVote({
       id: question,
       authedUser: user.toString(),
-      answer: e.target.value,
+      answer: this.state.answer,
     }))
   }
 
   checkAnswerByAuthed() {
     // function to check if the authedUser answered or not a question
     const { question, user } = this.props
+    //filtering the answer options from the question keys values
+    const option1 = Object.keys(question).filter(answer => answer === 'optionOne')
+    const option2 = Object.keys(question).filter(answer => answer === 'optionTwo')
+
     return user //checking if user is authed
             ?  question.optionOne.votes.includes(user.toString()) ||
                question.optionTwo.votes.includes(user.toString())
@@ -54,11 +72,12 @@ class QuestionDetail extends Component {
                       className='question-select-form'
                       onSubmit={this.handleQuestionAnswer}>
                       <select
+                        onChange={this.handleChange}
                         defaultValue='Select an answer'
                         className='question-select'>
                         <option value='Select an answer' disabled hidden>Select an answer</option>
-                        <option value={question.optionOne}>{question.optionOne.text}</option>
-                        <option value={question.optionTwo}>{question.optionTwo.text}</option>
+                        <option value={option1}>{question.optionOne.text}</option>
+                        <option value={option2}>{question.optionTwo.text}</option>
                       </select>
                       <input type="submit" value="Submit" />
                     </form>
