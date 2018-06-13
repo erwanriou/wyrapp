@@ -19,8 +19,8 @@ export function handleInitialData () {
 export function handleQuestionVote (info){
     return (dispatch) => {
       dispatch(showLoading())
-      dispatch(handleAnswerQuestion(info))
       dispatch(handleUpdateUserAnswer(info))
+      dispatch(handleAnswerQuestion(info))
       dispatch(hideLoading())
     }
 }

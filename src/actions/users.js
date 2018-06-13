@@ -10,10 +10,10 @@ export function receiveUsers (users) {
   }
 }
 
-function updateUserAnswer({id, authedUser, answer}) {
+function updateUserAnswer({qid, authedUser, answer}) {
     return {
         type: UPDATE_USER_ANSWER,
-        id,
+        id: qid,
         authedUser,
         answer,
     }

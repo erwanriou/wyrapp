@@ -8,9 +8,19 @@ export default function users (state = [], action) {
         ...action.users,
       }
     case UPDATE_USER_ANSWER :
-      let newState = { ...state }
-      newState[action.authedUser.id].answers[action.id] = action.answer
-      return newState
+      const user = {...state[action.authedUser]};
+      const answer = action.answer;
+
+      return {
+         ...state,
+         [action.authedUser] : {
+             ...user,
+             answers: {
+                 ...user.answers,
+                 [action.id] : answer
+             }
+         }
+      }
     default :
       return state
   }

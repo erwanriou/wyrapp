@@ -8,9 +8,17 @@ export default function questions (state = {}, action) {
         ...action.questions,
       }
     case ANSWER_QUESTION :
-      let newState = { ...state }
-      newState[action.id][action.answer].votes.concat([action.authedUser])
-      return newState
+    const question = {...state[action.qid]};
+       return {
+           ...state,
+           [action.qid]: {
+               ...question,
+               [action.answer]: {
+                   ...question[action.answer],
+                   votes: question[action.answer].votes.concat([action.authedUser])
+               }
+           }
+       }
     default :
       return state
   }
