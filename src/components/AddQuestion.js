@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Redirect, withRouter } from 'react-router-dom'
 
-import { handleCreateQuestion } from '../actions/shared'
 
-class AddQuestion extends React.Component {
+import { handleAddQuestion } from '../actions/questions'
+
+class AddQuestion extends Component {
   constructor(props) {
     super(props)
     this.state = {
       option1: '',
       option2: '',
+      Dashboard: false,
     }
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
@@ -27,15 +30,24 @@ class AddQuestion extends React.Component {
     const { option1, option2 } = this.state
     const { dispatch, author } = this.props
     e.preventDefault()
-    dispatch(handleCreateQuestion({
-      author: author,
+    dispatch(handleAddQuestion({
+      author: author.toString(),
       optionOneText: option1,
-      optionTwoText: option2,  
+      optionTwoText: option2,
     }))
+    //reset the form and return to dashboard
+    this.setState({
+      option1: '',
+      option2: '',
+      Dashboard: true,
+    });
   }
 
   render() {
-    const { option1, option2 } = this.state
+    const { option1, option2, Dashboard } = this.state
+    if (Dashboard === true) {
+      return <Redirect to='/dashboard' />
+    }
     return (
       <div className='add-question'>
         <h1>WOULD YOU RATHER</h1>
@@ -69,4 +81,4 @@ function mapStateToProps ({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(AddQuestion)
+export default withRouter(connect(mapStateToProps)(AddQuestion))

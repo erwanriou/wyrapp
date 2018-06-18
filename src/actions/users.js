@@ -1,4 +1,4 @@
-import {saveQuestionAnswer, saveQuestion } from '../utils/api'
+import {saveQuestionAnswer } from '../utils/api'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const UPDATE_USER_ANSWER = 'UPDATE_USER_ANSWER'
@@ -8,24 +8,6 @@ export function receiveUsers (users) {
   return {
     type: RECEIVE_USERS,
     users,
-  }
-}
-
-function updateUserQuestion(question) {
-  return {
-    type: UPDATE_USER_QUESTION,
-    question,
-  }
-}
-
-export function handleUpdateUserQuestion ({ author, optionOneText, optionTwoText }) {
-  return (dispatch, getState) => {
-
-    return saveQuestion({
-      author,
-      optionOneText,
-      optionTwoText,
-    }).then((question) => dispatch(updateUserQuestion(question)))
   }
 }
 

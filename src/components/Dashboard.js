@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+import LoadingBar from 'react-redux-loading'
 
 import Question from './Question.js'
 
@@ -47,33 +48,42 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    const { loading } = this.props
     return (
-      <div className='dashboard'>
-        <div className="filter">
-          <h1
-            onClick={this.handleToggleAnswers}
-            style={{fontWeight: !this.state.isToggle ? '500' : '100'}}>
-            UNANSWERED QUESTIONS
-          </h1>
-          <h1
-            onClick={this.handleToggleQuestions}
-            style={{fontWeight: this.state.isToggle ? '500' : '100'}}>
-            ANSWERED QUESTIONS
-          </h1>
-        </div>
-        <ul>
-          {this.state.isToggle ? this.displayAnswers() : this.displayUnanswers()}
-        </ul>
-      </div>
+      <Fragment>
+        <LoadingBar style={{ backgroundColor: 'orange', height: '10px', bottom:'50%' }}/>
+        { loading === 1
+          ? null
+          : <Fragment>
+              <div className='dashboard'>
+                <div className="filter">
+                  <h1
+                    onClick={this.handleToggleAnswers}
+                    style={{fontWeight: !this.state.isToggle ? '500' : '100'}}>
+                    UNANSWERED QUESTIONS
+                  </h1>
+                  <h1
+                    onClick={this.handleToggleQuestions}
+                    style={{fontWeight: this.state.isToggle ? '500' : '100'}}>
+                    ANSWERED QUESTIONS
+                  </h1>
+                </div>
+                <ul>
+                  {this.state.isToggle ? this.displayAnswers() : this.displayUnanswers()}
+                </ul>
+              </div>
+            </Fragment>}
+        </Fragment>
     )
   }
 }
 
-function mapStateToProps ({ authedUser, users, questions }) {
+function mapStateToProps ({ authedUser, users, questions, loadingBar }) {
   const user = authedUser ? Object.values(authedUser) : null
   const answered = user ? users[user].answers : null
   const questionsIds = Object.keys(questions)
   return {
+    loading: loadingBar.default,
     answeredIds: answered
     ? Object.keys(answered)
       // sorting the answered questions by date
