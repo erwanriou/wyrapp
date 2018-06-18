@@ -199,7 +199,7 @@ p {
 .add-question {
   border: 1px solid #eaeaea;
   box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
-  width: 30rem;
+  width: 40rem;
   margin: 10rem auto;
   padding: 2rem;
 }
@@ -207,6 +207,8 @@ p {
 .add-question h1 {
   text-align: center;
   padding: 1rem;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .add-question form {
@@ -216,7 +218,25 @@ p {
 
 .add-question form input {
   margin: 0.5rem 1rem;
+  padding: 0.5rem;
 }
+
+.add-question p {
+  text-align: left;
+  margin: 0.5rem 1rem;
+}
+
+.add-question .submit-question {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  background-color: white;
+  border: 1px solid #eaeaea;
+  padding: 1.5rem 4rem;
+  margin: 2rem 1rem;
+  width: 5rem;
+}
+
 /* dashboard styling */
 
 .dashboard {

@@ -52,20 +52,24 @@ class AddQuestion extends Component {
       <div className='add-question'>
         <h1>WOULD YOU RATHER</h1>
         <form
+          className='create-question'
           onSubmit={this.handleSubmit}>
+          <p>Option 1</p>
           <input
             className='options'
-            placeholder='write your 1rst option there'
+            placeholder='try to write something very nerdy here'
             value={option1}
             onChange={this.handleChange1}
             type="text"/>
+          <p>Option 2</p>
           <input
             className='options'
-            placeholder='write your 2nd option there'
+            placeholder='try to be normal and write something boring here'
             value={option2}
             onChange={this.handleChange2}
             type="text"/>
           <input
+            className='submit-question'
             type="submit"
             disabled={option1 === '' || option2 === ''}/>
         </form>
