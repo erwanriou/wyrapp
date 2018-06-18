@@ -18,36 +18,34 @@ function updateUserQuestion(question) {
   }
 }
 
-export function handleUpdateUserQuestion (info) {
-  return (dispatch) => {
-    dispatch(saveQuestion(info))
-    return saveQuestion(info)
-    .catch((e) => {
-        console.warn("Error in handleSaveQuestion")
-        dispatch(saveQuestion(info))
-        alert('There was an error creating this question')
-    })
+export function handleUpdateUserQuestion ({ author, optionOneText, optionTwoText }) {
+  return (dispatch, getState) => {
+
+    return saveQuestion({
+      author,
+      optionOneText,
+      optionTwoText,
+    }).then((question) => dispatch(updateUserQuestion(question)))
   }
 }
 
 function updateUserAnswer({qid, authedUser, answer}) {
-    return {
-        type: UPDATE_USER_ANSWER,
-        id: qid,
-        authedUser,
-        answer,
-    }
+  return {
+    type: UPDATE_USER_ANSWER,
+    id: qid,
+    authedUser,
+    answer,
+  }
 }
 
 export function handleUpdateUserAnswer(info) {
-    return dispatch => {
-        dispatch(updateUserAnswer(info))
-
+  return dispatch => {
+    dispatch(updateUserAnswer(info))
     return saveQuestionAnswer(info)
-        .catch((e) => {
-            console.warn("Error in handleAnswerQuestion")
-            dispatch(updateUserAnswer(info))
-            alert('There was an error answering this question')
-        })
-    }
+      .catch((e) => {
+        console.warn("Error in handleAnswerQuestion")
+        dispatch(updateUserAnswer(info))
+        alert('There was an error answering this question')
+      })
+  }
 }

@@ -28,14 +28,13 @@ class AddQuestion extends React.Component {
     const { dispatch, author } = this.props
     e.preventDefault()
     dispatch(handleCreateQuestion({
-      optionOneText: option1,
-      optionTwoText: option2,
       author: author,
+      optionOneText: option1,
+      optionTwoText: option2,  
     }))
   }
 
   render() {
-    const { users, questions } = this.props
     const { option1, option2 } = this.state
     return (
       <div className='add-question'>
@@ -63,11 +62,9 @@ class AddQuestion extends React.Component {
   }
 }
 
-function mapStateToProps ({ users, questions, authedUser }) {
+function mapStateToProps ({ authedUser }) {
   const author = authedUser ? Object.values(authedUser) : null
   return {
-    users,
-    questions,
     author,
   }
 }

@@ -18,15 +18,14 @@ function addQuestion(question) {
   }
 }
 
-export function handleAddQuestion (info) {
-  return (dispatch) => {
-    dispatch(saveQuestion(info))
-    return saveQuestion(info)
-    .catch((e) => {
-        console.warn("Error in handleSaveQuestion")
-        dispatch(saveQuestion(info))
-        alert('There was an error creating this question')
-    })
+export function handleAddQuestion ({ author, optionOneText, optionTwoText }) {
+  return (dispatch, getState) => {
+
+    return saveQuestion({
+      author,
+      optionOneText,
+      optionTwoText,
+    }).then((question) => dispatch(addQuestion(question)))
   }
 }
 
@@ -45,9 +44,9 @@ export function handleAnswerQuestion(info) {
     dispatch(answerQuestion(info))
     return saveQuestionAnswer(info)
      .catch((e) => {
-         console.warn("Error in handleAnswerQuestion")
-         dispatch(answerQuestion(info))
-         alert('There was an error answering this question')
+       console.warn("Error in handleAnswerQuestion")
+       dispatch(answerQuestion(info))
+       alert('There was an error answering this question')
      })
   }
 }
