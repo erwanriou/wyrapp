@@ -38,8 +38,7 @@ class QuestionDetail extends Component {
   handleQuestionAnswer = (e) => {
     //function to import the answers selected to redux and the database
     e.preventDefault()
-    const { dispatch, question, user, id } = this.props
-    console.log(question[this.state.answer].votes.concat([user.toString()]));
+    const { dispatch, user, id } = this.props
     dispatch(handleQuestionVote({
       qid: id,
       authedUser: user.toString(),

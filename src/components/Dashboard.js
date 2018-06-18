@@ -37,7 +37,9 @@ class Dashboard extends React.Component {
     // function to display only unanswered question on each user conected
     const { questionsIds, answeredIds } = this.props
     return answeredIds
-      ? questionsIds.filter(id => !answeredIds.includes(id)).map(id =>
+      ? questionsIds
+        .filter(id => !answeredIds.includes(id))
+        .map(id =>
         (<li key={id}>
           {<Question id={id}/>}
         </li>))
@@ -72,8 +74,14 @@ function mapStateToProps ({ authedUser, users, questions }) {
   const answered = user ? users[user].answers : null
   const questionsIds = Object.keys(questions)
   return {
-    answeredIds: answered ? Object.keys(answered) : null,
-    questionsIds: questionsIds,
+    answeredIds: answered
+    ? Object.keys(answered)
+      // sorting the answered questions by date
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+    : null,
+    questionsIds: questionsIds
+      // sorting the unanswered questions by date
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
   }
 }
 

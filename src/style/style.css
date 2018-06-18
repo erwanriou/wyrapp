@@ -186,8 +186,8 @@ p {
   padding: 1rem 2rem;
   border: 1px solid #eaeaea;
   background-color: white;
-}
 
+}
 
 .question-select-form select:focus, .question-select-form option:focus {
   outline: none;
@@ -196,11 +196,27 @@ p {
 
 /* Create question styling */
 
-.add-question h1 {
-  text-align: center;
-  margin-top: 10rem;
+.add-question {
+  border: 1px solid #eaeaea;
+  box-shadow: 2px 4px 8px 0 rgba(0,0,0,.1);
+  width: 30rem;
+  margin: 10rem auto;
+  padding: 2rem;
 }
 
+.add-question h1 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.add-question form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-question form input {
+  margin: 0.5rem 1rem;
+}
 /* dashboard styling */
 
 .dashboard {

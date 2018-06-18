@@ -1,6 +1,6 @@
 import { getInitialData } from '../utils/api'
-import { receiveUsers, handleUpdateUserAnswer } from '../actions/users'
-import { receiveQuestions, handleAnswerQuestion } from '../actions/questions'
+import { receiveUsers, handleUpdateUserAnswer, handleUpdateUserQuestion } from '../actions/users'
+import { receiveQuestions, handleAnswerQuestion, handleAddQuestion  } from '../actions/questions'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 export function handleInitialData () {
@@ -21,6 +21,16 @@ export function handleQuestionVote (info){
       dispatch(showLoading())
       dispatch(handleUpdateUserAnswer(info))
       dispatch(handleAnswerQuestion(info))
+      dispatch(hideLoading())
+    }
+}
+
+//here we fusion the both handdle create question and user since the value has to be updated in both parts in the database>
+export function handleCreateQuestion (info){
+    return (dispatch) => {
+      dispatch(showLoading())
+      dispatch(handleAddQuestion(info))
+      dispatch(handleUpdateUserQuestion(info))
       dispatch(hideLoading())
     }
 }
